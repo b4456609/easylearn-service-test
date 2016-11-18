@@ -6,14 +6,14 @@ plugins {
 pact {
 
     serviceProviders {
-        	easylearn_pack {
-          
+        	easylearn_user {
+
             protocol = 'http'
-            host = '$System.env.TARGET_HOST'
-            port = '$System.env.TARGET_PORT'
+            host = System.getenv( 'TARGET_HOST' )
+            port = System.getenv( 'TARGET_PORT' )
             path = '/'
 
-            hasPactsFromPactBroker('$System.env.PACT_URL')
+            hasPactsFromPactBroker(System.getenv( 'PACT_URL' ))
         }
     }
 }
