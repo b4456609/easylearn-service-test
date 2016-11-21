@@ -4,16 +4,33 @@ plugins {
 }
 
 pact {
+  serviceProviders {
+    /*easylearn_user {
 
-    serviceProviders {
-        	easylearn_user {
+      protocol = 'http'
+      host = System.getenv( 'TARGET_HOST' )
+      port = System.getenv( 'TARGET_PORT' )
+      path = '/'
 
-            protocol = 'http'
-            host = System.getenv( 'TARGET_HOST' )
-            port = System.getenv( 'TARGET_PORT' )
-            path = '/'
+      hasPactsFromPactBroker(System.getenv( 'PACT_URL' ))
+    }*/
+    /*easylearn_pack {
 
-            hasPactsFromPactBroker(System.getenv( 'PACT_URL' ))
-        }
+      protocol = 'http'
+      host = System.getenv( 'TARGET_HOST' )
+      port = System.getenv( 'TARGET_PORT' )
+      path = '/'
+
+      hasPactsFromPactBroker(System.getenv( 'PACT_URL' ))
+    }*/
+    easylearn_pack {
+      protocol = 'http'
+      host = 'localhost'
+      port = 8080
+      path = '/'
+      hasPactWith('easylearn_web') {
+        pactFile = file('/home/bernie/project/easylearn/easylearn-webback/target/pacts/easylearn-webback-easylearn-pack.json')
+      }
     }
+  }
 }
