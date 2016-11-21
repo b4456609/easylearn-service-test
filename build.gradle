@@ -23,5 +23,14 @@ pact {
 
       hasPactsFromPactBroker(System.getenv( 'PACT_URL' ))
     }
+    easylearn_note {
+
+      protocol = 'http'
+      host = System.getenv( 'TARGET_HOST' )
+      port = System.getenv( 'TARGET_NOTE_PORT' )
+      path = '/'
+
+      hasPactsFromPactBroker(System.getenv( 'PACT_URL' ))
+    }
   }
 }
