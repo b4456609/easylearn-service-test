@@ -33,4 +33,10 @@ pact {
       hasPactsFromPactBroker(System.getenv( 'PACT_URL' ))
     }
   }
+   reports {
+      defaultReports() // adds the standard console output
+
+      markdown // report in markdown format
+      json // report in json format
+    }
 }
